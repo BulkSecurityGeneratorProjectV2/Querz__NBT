@@ -112,7 +112,7 @@ public final class MCAUtil {
 	public static int write(MCAFile mcaFile, File file, boolean changeLastUpdate) throws IOException {
 		File to = file;
 		if (file.exists()) {
-			to = File.createTempFile(to.getName(), null);
+			to = Files.createTempFile(to.getName(), null).toFile();
 		}
 		int chunks;
 		try (RandomAccessFile raf = new RandomAccessFile(to, "rw")) {
